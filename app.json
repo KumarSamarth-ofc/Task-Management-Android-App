@@ -16,7 +16,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.samarth.cse.TaskManagementApp"
     },
     "web": {
       "bundler": "metro",
@@ -37,6 +38,19 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "4141e7db-de7e-4061-9f21-44ca69e81eaf"
+      }
+    },
+    "owner": "samarth.cse",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/4141e7db-de7e-4061-9f21-44ca69e81eaf"
     }
   }
 }
