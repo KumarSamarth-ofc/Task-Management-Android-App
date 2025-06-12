@@ -1,14 +1,29 @@
-import { FlatList, Text, View } from "react-native";
+import { AppScreens } from "@/utils/constants";
+import { FlatList, View } from "react-native";
+import { Chip } from "react-native-paper";
 import TaskItem from "../components/TaskItem";
 
-export default function HomeScreen({ tasks,onTaskComplete, onTaskDelete }) {
+export default function HomeScreen({
+  tasks,
+  onTaskComplete,
+  onTaskDelete,
+  changeScreen,
+}) {
   //   console.log(tasks);
 
   return (
     <View>
-      <Text> HomeScreen </Text>
+      <Chip
+        onPress={() => changeScreen(AppScreens.AddTaskScreen)}
+        icon={"plus"}
+        textStyle={{ fontSize: 16 }}
+        style={{ padding: 4, marginTop: 15, marginHorizontal: 10 }}
+      >
+        Add New Task
+      </Chip>
       <FlatList
-        style={{ marginVertical: 40 }}
+        style={{ marginVertical: 10 }}
+        contentContainerStyle={{paddingBottom:109}}
         data={tasks}
         keyExtractor={(item, index) => item.title + index}
         renderItem={(iter) => (
@@ -18,8 +33,8 @@ export default function HomeScreen({ tasks,onTaskComplete, onTaskDelete }) {
             description={iter.item.description}
             id={iter.item.id}
             isCompleted={iter.item.isCompleted}
-            onComplete={() => onTaskComplete()}
-            onDelete={() => onTaskDelete()}
+            onComplete={(id) => onTaskComplete(id)}
+            onDelete={() => onTaskDelete(iter.item.id)}
           />
         )}
       />

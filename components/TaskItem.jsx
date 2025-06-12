@@ -47,7 +47,7 @@ export default function TaskItem({
           Delete
         </Button>
         <Button
-          onPress={() => onComplete()}
+          onPress={() => onComplete(id)}
           mode="contained"
           style={styles.button}
         >
